@@ -15,7 +15,7 @@ const LICENSE = `/**!
  * MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/${REPONAME}/
  */`;
 
-const FILENAME = "index6"; // used for output file name
+const FILENAME = "index7"; // used for output file name
 
 const packageCONFIG = {LICENSE,FILENAME};
 
