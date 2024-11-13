@@ -1,9 +1,9 @@
-import { isValidString } from './utils/stringUtils';
-import { isValidNumber } from './utils/numberUtils';
-import { loadImage } from './image/loadImage';
-import { resizeImageData } from './image/resizeImageData';
-import { createImageText } from './image/createImageText';
-import { COLOR_MODE } from './config';
+import { isValidString } from './utils/stringUtils.js';
+import { isValidNumber } from './utils/numberUtils.js';
+import { loadImage } from './image/loadImage.js';
+import { resizeImageData } from './image/resizeImageData.js';
+import { createImageText } from './image/createImageText.js';
+import { COLOR_MODE } from './config.js';
 
 /**
  * Asynchronously processes an image and returns an ANSI-escaped pixel art representation.
