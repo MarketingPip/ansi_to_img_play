@@ -19,7 +19,7 @@ import { COLOR_MODE } from './config.js';
  * 
  * @returns {Promise<string>} The ANSI-escaped string representing the image in pixel art.
  * 
- * @throws {Error} Throws an error if the `imagePath` is invalid or missing.
+ * @throws {TypeError} Throws an error if the `imagePath` is invalid, missing, or if the width/height parameters are invalid.
  * 
  * @example
  * // Example usage:
@@ -31,13 +31,13 @@ import { COLOR_MODE } from './config.js';
  *   maintainAspectRatio: true
  * };
  * 
- * run(options).then(imageText => {
+ * ImageToAnsi(options).then(imageText => {
  *   console.log(imageText); // Outputs the ANSI-escaped pixel art representation of the image
  * }).catch(error => {
  *   console.error('Error processing image:', error.message);
  * });
  */
-export async function run(_options = {}) {
+export async function ImageToAnsi(_options = {}) {
     const defaultOptions = {
         colorMode: COLOR_MODE.TRUE_COLOR,
         width: null,  // Target width (null means original size)
