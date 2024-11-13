@@ -1,4 +1,5 @@
 import { COLOR_MODE } from '../config.js';
+import { ANSI } from "./color/ansiCodes.js";
 /**
  * Converts RGB values to the closest 256-color code.
  * @param {number} r - Red value (0-255).
