@@ -16,8 +16,10 @@
   "scripts": {
     "build": "webpack --config ./src/webpack.config.babel.js"
   },
+  "dependencies": {
+    "canvas": "^2.11.0"
+  },
   "devDependencies": {
-    "canvas": "^2.11.0",
     "@babel/core": "^7.24.8",
     "@babel/preset-env": "^7.24.8",
     "babel-loader": "^9.1.3",
