@@ -1,4 +1,4 @@
-import { COLOR_MODE } from '../config';
+import { COLOR_MODE } from '../config.js';
 /**
  * Converts RGB values to the closest 256-color code.
  * @param {number} r - Red value (0-255).
