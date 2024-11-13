@@ -7,7 +7,7 @@ import { ANSI } from "../color/ansiCodes.js";
  * @param {string} [colorMode='24bit'] - The color mode.
  * @returns {string} A string representing the image with ANSI escape codes.
  */
-function createImageText(imageData, colorMode = '24bit', twoPixelsPerSpace = true) {
+export function createImageText(imageData, colorMode = '24bit', twoPixelsPerSpace = true) {
     let result = '';
     const width = imageData.width;
     const height = imageData.height;
