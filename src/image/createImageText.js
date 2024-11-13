@@ -7,50 +7,28 @@ import { ANSI } from "../color/ansiCodes.js";
  * @param {string} [colorMode='24bit'] - The color mode.
  * @returns {string} A string representing the image with ANSI escape codes.
  */
-export function createImageText(imageData, colorMode = '24bit', twoPixelsPerSpace = true) {
-  let result = '';
+export function createImageText(imageData, colorMode = '24bit') {
     const width = imageData.width;
     const height = imageData.height;
-  
-    // If twoPixelsPerSpace is enabled, adjust the width and height
-    const adjustedWidth = twoPixelsPerSpace ? Math.ceil(width / 2) : width;
-    const adjustedHeight = twoPixelsPerSpace ? Math.ceil(height / 2) : height;
-  
-    for (let y = 0; y < adjustedHeight; y++) {
-        let row = '';
-        
-        for (let x = 0; x < adjustedWidth; x++) {
-            // Get pixel for the current position, handle two pixels if enabled
-            let pixel = getPixel(imageData, x * (twoPixelsPerSpace ? 2 : 1), y);
-            let pixelColor = getColorCode(pixel.r, pixel.g, pixel.b, colorMode);
-            
-            if (twoPixelsPerSpace) {
-                // Get the adjacent pixel for the second half of the block
-                let nextPixel = getPixel(imageData, x * 2 + 1, y);
-                let nextPixelColor = getColorCode(nextPixel.r, nextPixel.g, nextPixel.b, colorMode);
-                
-                // Combine both pixels into a single "block" using ▄ character
-                row += `${pixelColor}\x1b[48;5;${nextPixelColor.bg}m▄` +
-                    `\x1b[38;5;${nextPixelColor.fg}m\x1b[48;5;${pixelColor.bg}m▄\x1b[0m`;
+    let output = [];
+
+    for (let y = 0; y < height; y++) {
+        let row = [];
+        for (let x = 0; x < width; x++) {
+            const i = (y * width + x) * 4;
+            const r = imageData.data[i];
+            const g = imageData.data[i + 1];
+            const b = imageData.data[i + 2];
+            const a = imageData.data[i + 3];
+
+            if (a > 0) {
+                const colorCode = getColorCode(r, g, b, colorMode);
+                row.push(`${colorCode}  ${ANSI.reset}`);
             } else {
-                // Standard one pixel rendering
-                row += `\x1b[38;5;${pixelColor.fg}m\x1b[48;5;${pixelColor.bg}m█\x1b[0m`;
+                row.push("  ");
             }
         }
-        
-        result += row + '\n';
+        output.push(row.join(''));
     }
-    
-    return result;
-}
-
-// Helper function to get the pixel color at a specific (x, y) coordinate
-function getPixel(imageData, x, y) {
-    const index = (y * imageData.width + x) * 4;
-    const r = imageData.data[index];
-    const g = imageData.data[index + 1];
-    const b = imageData.data[index + 2];
-    const a = imageData.data[index + 3];
-
-    return { r, g, b, a };
+    return output.join('\n');
 }
