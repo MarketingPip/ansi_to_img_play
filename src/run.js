@@ -4,7 +4,8 @@ import { loadImage } from './image/loadImage.js';
 import { resizeImageData } from './image/resizeImageData.js';
 import { createImageText } from './image/createImageText.js';
 import { COLOR_MODE } from './config.js';
-
+import { getColorCode } from "./color/colorUtils.js";
+import { ANSI } from "./color/ansiCodes.js";
 /**
  * Asynchronously processes an image and returns an ANSI-escaped pixel art representation.
  * The function takes options for color mode, dimensions, and image path, loads the image, resizes it if necessary, 
