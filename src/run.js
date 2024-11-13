@@ -37,7 +37,7 @@ import { COLOR_MODE } from './config.js';
  *   console.error('Error processing image:', error.message);
  * });
  */
-async function run(_options = {}) {
+export async function run(_options = {}) {
     const defaultOptions = {
         colorMode: COLOR_MODE.TRUE_COLOR,
         width: null,  // Target width (null means original size)
