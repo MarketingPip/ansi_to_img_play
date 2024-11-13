@@ -1,4 +1,4 @@
-import _canvas from "canvas";
+import _canvas from "canvas.js";
 
 /**
  * Loads an image from a given path and returns its image data, width, and height.
