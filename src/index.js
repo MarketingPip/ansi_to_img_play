@@ -1,1 +1,1 @@
-export { run } from './run.js';
+export {ImageToAnsi} from './image_to_ansi.js';
