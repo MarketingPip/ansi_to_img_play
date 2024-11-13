@@ -3,7 +3,7 @@ Note / step for cutting release -
 update package.json FIRST with version - to keep updated version in license.
 THEN create build.
 */ 
-import packageData from '../package.json' assert { type: 'json' };
+import packageData from '../package.json' assert { type: 'json' };https://github.com/MarketingPip/ansi_to_img_play/blob/main/src/license.config.js
 
 
 const REPONAME = `Emoji-Fallback.js`;
@@ -15,7 +15,7 @@ const LICENSE = `/**!
  * MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/${REPONAME}/
  */`;
 
-const FILENAME = "tarot"; // used for output file name
+const FILENAME = "index"; // used for output file name
 
 const packageCONFIG = {LICENSE,FILENAME};
 
