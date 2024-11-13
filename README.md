@@ -5,9 +5,14 @@ This library enables the conversion of pixel images into ANSI art that can be di
 
 ## Features
 
-- **Text-Based Rendering:**  
-  Render images as text using ANSI escape sequences to represent colors, allowing pixel art to be displayed in the terminal.
--
+- **Image to ANSI Conversion:**  
+  Convert any image (e.g., PNG, JPEG, BMP) to pixel-based text art using ANSI escape codes for terminal / console display.
+- **Terminal-Friendly Rendering:**  
+  Render images as colored ASCII text that can be printed directly to the terminal / console or captured into a file for later use.
+- **Support for Multiple Color Modes:**  
+  Convert images to different color representations including 256-color and true 24-bit color modes.
+- **Flexible Image Resize:**  
+  Resize images before converting them to fit your desired output size, ensuring scalability for different display environments.
 ---
 
 ## Usage
@@ -34,9 +39,23 @@ loadImage(imagePath)
   .catch(err => {
     console.error('Error processing image:', err);
   });
+
+
+// Alternatively, for true color (24-bit RGB) rendering, use 'true':
+
 ```
 
 
+### 4. Customize Configuration (Optional)
+
+You can modify default settings  
+```javascript
+export const config = {
+  colorMode: '256',  // Choose between '256' or 'true'
+  width: 80,      // Width for the output text
+  height: 160,      // Width for the output text
+};
+```
 
 ## Contributing
 
