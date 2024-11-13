@@ -8,7 +8,7 @@ import { ANSI } from "../color/ansiCodes.js";
  * @returns {string} A string representing the image with ANSI escape codes.
  */
 export function createImageText(imageData, colorMode = '24bit', twoPixelsPerSpace = true) {
-    let result = '';
+  let result = '';
     const width = imageData.width;
     const height = imageData.height;
   
@@ -21,12 +21,12 @@ export function createImageText(imageData, colorMode = '24bit', twoPixelsPerSpac
         
         for (let x = 0; x < adjustedWidth; x++) {
             // Get pixel for the current position, handle two pixels if enabled
-            let pixel = imageData.getPixel(x * (twoPixelsPerSpace ? 2 : 1), y);
+            let pixel = getPixel(imageData, x * (twoPixelsPerSpace ? 2 : 1), y);
             let pixelColor = getColorCode(pixel.r, pixel.g, pixel.b, colorMode);
             
             if (twoPixelsPerSpace) {
                 // Get the adjacent pixel for the second half of the block
-                let nextPixel = imageData.getPixel(x * 2 + 1, y);
+                let nextPixel = getPixel(imageData, x * 2 + 1, y);
                 let nextPixelColor = getColorCode(nextPixel.r, nextPixel.g, nextPixel.b, colorMode);
                 
                 // Combine both pixels into a single "block" using ▄ character
@@ -42,4 +42,15 @@ export function createImageText(imageData, colorMode = '24bit', twoPixelsPerSpac
     }
     
     return result;
+}
+
+// Helper function to get the pixel color at a specific (x, y) coordinate
+function getPixel(imageData, x, y) {
+    const index = (y * imageData.width + x) * 4;
+    const r = imageData.data[index];
+    const g = imageData.data[index + 1];
+    const b = imageData.data[index + 2];
+    const a = imageData.data[index + 3];
+
+    return { r, g, b, a };
 }
