@@ -64,7 +64,7 @@ class RemoveLicenseFilePlugin {
 
 
 const config  = {
-  entry:`./src/${packageData.FILENAME}.js`,
+  entry:`./src/index.js`,
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
     filename: packageData.FILENAME  + ".min.js",
