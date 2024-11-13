@@ -1,5 +1,5 @@
-import { getColorCode } from "../color/colorUtils";
-import { ANSI } from "../color/ansiCodes";
+import { getColorCode } from "../color/colorUtils.js";
+import { ANSI } from "../color/ansiCodes.js";
 
 /**
  * Creates a text representation of an image using ANSI color codes.
