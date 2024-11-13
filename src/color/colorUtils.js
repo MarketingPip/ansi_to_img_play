@@ -33,7 +33,7 @@ export function rgbTo256(r, g, b) {
  * const colorCode = getColorCode(255, 0, 0, COLOR_MODE.TRUE_COLOR);
  * console.log(colorCode); // Outputs the ANSI color code for bright red in true color mode.
  */
-function getColorCode(r, g, b, colorMode) {
+export function getColorCode(r, g, b, colorMode) {
     if (colorMode === COLOR_MODE.TRUE_COLOR) {
         return ANSI.bgRGB(r, g, b);
     } else {
