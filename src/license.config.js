@@ -3,7 +3,7 @@ Note / step for cutting release -
 update package.json FIRST with version - to keep updated version in license.
 THEN create build.
 */ 
-import packageData from '../package.json' assert { type: 'json' };https://github.com/MarketingPip/ansi_to_img_play/blob/main/src/license.config.js
+import packageData from '../package.json' assert { type: 'json' };
 
 
 const REPONAME = `Emoji-Fallback.js`;
