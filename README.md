@@ -1,6 +1,6 @@
 # Image-To-ANSI.js
 
-This library allows you to create pixel art representations of images using ANSI escape codes. It provides utilities for image manipulation, color conversion, and rendering the image as colored text that can be displayed in the terminal or other text-based environments.
+This library enables the conversion of pixel images into ANSI art that can be displayed in a terminal or other text-based environments. It uses ANSI escape codes to represent pixel colors in a way that mimics pixel art, allowing you to view colorful images directly in the terminal.
 
 
 ## Features
